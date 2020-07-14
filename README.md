@@ -3,7 +3,7 @@
 
 ## Índice 
    * [1. Introdução](#1-introdução) 
-   * [2. Pré Requisitos](#2-pre-requisitos) 
+   * [2. Pré Requisitos](#2-pré-requisitos) 
    * [3. Pacotes Necessários](#3-pacotes-necessários)
    * [4. Inicializando o projeto](#4-inicializando-o-projeto)
 ----
