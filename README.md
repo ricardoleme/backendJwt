@@ -78,7 +78,7 @@ npm init
 npm install express express-validator body-parser bcryptjs jsonwebtoken mongoose nodemon dotenv --save
 ```
 
-
+Renomeie o arquivo .env-exemplo para .env e informe a sua string de conexão do MongoDb.
 
 **Código baseado no seguinte artigo** : 
 
