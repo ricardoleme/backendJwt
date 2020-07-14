@@ -1,18 +1,24 @@
 const mongoose = require("mongoose");
 
-// Replace this with your MONGOURI.
-const MONGOURI = "mongodb://test:a12345@ds257698.mlab.com:57698/node-auth";
+// Defina a string de conexão do MongoDb no arquivo .env
+const MONGOURI = process.env.MONGODB_URL
 
-const InitiateMongoServer = async () => {
+const InicializaMongoServer = async () => {
   try {
     await mongoose.connect(MONGOURI, {
-      useNewUrlParser: true
+    //Configurações para evitar os erros de deprecated functions (funções descontinuadas)
+    //Para saber mais: https://mongoosejs.com/docs/deprecations.html
+    useNewUrlParser: true, //Atribuímos para utilizar o novo Parser de URL
+    useCreateIndex: true, //Como a função ensureIndex() está descontinuada, iremos forçar para ele utilizar o CreateIndex.
+    useFindAndModify: false, //Definimos como false para fazer com que o Mongoose utilize os métodos findOneAndUpdate() e findOneAndRemove() por padrão
+    useUnifiedTopology: true // Para utilizarmos a nova engine para Descoberta e Monitoramento de Servidores
     });
-    console.log("Connected to DB !!");
+    console.log("🔌 Conectado ao MongoDB !!");
   } catch (e) {
     console.log(e);
     throw e;
   }
 };
 
-module.exports = InitiateMongoServer;
+module.exports = InicializaMongoServer;
+
