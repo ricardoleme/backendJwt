@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 module.exports = function(req, res, next) {
-  const token = req.header("token");
+  const token = req.header("token") || req.headers["x-access-token"];
   if (!token) return res.status(401).json({ mensagem: "É obrigatório o envio do token!" });
 
   try {

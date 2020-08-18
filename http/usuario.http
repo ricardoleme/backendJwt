@@ -1,0 +1,31 @@
+//Testar as requisições - Schema Usuário
+//Bye, Bye Postman :) (Mas claro, ainda dá para utilizá-lo se preferir)
+//Instale a extensão REST Client no Visual Studio Code para conseguir utilizar este recurso
+
+###
+// GET Usuário atual
+@baseUrl = http://localhost:4000
+GET {{baseUrl}}/usuario/eu
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNWYzYzJjZDVhODFhNmY2YzFhMTkzMjA4In0sImlhdCI6MTU5Nzc3OTUwMSwiZXhwIjoxNTk3NzgzMTAxfQ.ypnNyH1qMvsy6_MOTy-7G_HBdzc3Gr8orAnV2DK4CAI 
+
+###
+// POST Login Usuário
+POST {{baseUrl}}/usuario/login
+Content-Type: application/json
+
+{
+    "email": "ricardo.leme2@gmail.com",
+    "senha": "secreta"}
+
+###
+// POST Novo Usuário
+POST {{baseUrl}}/usuario/novo
+Content-Type: application/json
+
+{
+    "nome": "Ricardo Leme2",
+    "email": "ricardo.leme2@gmail.com",
+    "senha": "secreta",
+    "tipo": "administrador"
+}

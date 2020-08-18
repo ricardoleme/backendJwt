@@ -18,13 +18,10 @@ const Usuario = require("../model/Usuario");
 router.post(
   "/novo",
   [
-    check("nome", "Por favor, informe o nome do usuário")
-      .not()
-      .isEmpty(),
+    check("nome", "Por favor, informe o nome do usuário").not().isEmpty(),
     check("email", "Informe um e-mail válido").isEmail(),
-    check("senha", "Informe uma senha com no mínimo 6 caracteres").isLength({
-      min: 6
-    })
+    check("senha", "Informe uma senha com no mínimo 6 caracteres").isLength({min: 6}),
+    check("tipo","Informe um tipo de usuário válido!").isIn(['administrador', 'digitador', 'gerencial'])   
   ],
   async (req, res) => {
     const errors = validationResult(req);
