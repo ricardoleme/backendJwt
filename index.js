@@ -13,7 +13,19 @@ const app = express();
 const PORT = process.env.DEFAULT_PORT || 4000;
 
 // Middleware
-app.use(bodyParser.json());
+app.use(function(req, res, next) {
+   // atualize com o domínio do seu app
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:19006");
+  // Cabeçalhos que serão permitidos
+  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token");
+  // Métodos que serão permitidos
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  next();  
+});
+
+// parse application/json
+app.use(bodyParser.json())
+
 
 app.get("/", (req, res) => {
   res.json({ mensagem: "👏 API 100% funcional!" });

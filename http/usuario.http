@@ -27,5 +27,6 @@ Content-Type: application/json
     "nome": "Ricardo Leme2",
     "email": "ricardo.leme2@gmail.com",
     "senha": "secreta",
-    "tipo": "administrador"
+    "tipo": "administrador",
+    "avatar": "https://api.adorable.io/avatars/256/ricardo.leme2@gmail.com.png"
 }

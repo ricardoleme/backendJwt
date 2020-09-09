@@ -21,11 +21,15 @@ const UsuarioSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  avatar: {
+    type: String,
+    required: false
+  },
   ativo: { type: Boolean, default: true },
   tipo: {
     type: String,
-    enum: ['administrador', 'digitador', 'gerencial'],
-    default: 'digitador'
+    enum: ['administrador', 'cliente', 'profissional'],
+    default: 'cliente'
   }
 },
 { 

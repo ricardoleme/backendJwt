@@ -19,9 +19,10 @@ router.post(
   "/novo",
   [
     check("nome", "Por favor, informe o nome do usuário").not().isEmpty(),
+    check("avatar", "Não foi possível gerar o avatar do usuário").isEmpty(),
     check("email", "Informe um e-mail válido").isEmail(),
     check("senha", "Informe uma senha com no mínimo 6 caracteres").isLength({min: 6}),
-    check("tipo","Informe um tipo de usuário válido!").isIn(['administrador', 'digitador', 'gerencial'])   
+    check("tipo","Informe um tipo de usuário válido!").isIn(['administrador', 'cliente', 'profissional'])   
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -31,7 +32,7 @@ router.post(
       });
     }
 
-    const { nome, email, senha } = req.body;
+    const { nome, email, senha, avatar, tipo } = req.body;
     try {
       let usuario = await Usuario.findOne({
         email
@@ -45,11 +46,16 @@ router.post(
       usuario = new Usuario({
         nome,
         email,
-        senha
+        senha,
+        avatar,
+        tipo
       });
 
       const salt = await bcrypt.genSalt(10);
       usuario.senha = await bcrypt.hash(senha, salt);
+      // Criando um avatar randômico com a API Adorable.io
+      usuario.avatar =  'https://api.adorable.io/avatars/256/'+email+'.png'
+      
 
       await usuario.save();
       //O Payload é um objeto JSON com as Claims (informações) da entidade tratada, normalmente o usuário autenticado.
@@ -75,7 +81,7 @@ router.post(
     } catch (err) {
       console.log(err.message);   
       return res.status(500).json({
-        mensagem: `Erro ao salvar: ${err.message}`
+        errors: `Erro ao salvar o usuário: ${err.message}`
       });
     }
   }
