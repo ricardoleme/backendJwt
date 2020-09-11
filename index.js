@@ -41,3 +41,5 @@ app.use("/usuario", usuario);
 app.listen(PORT, (req, res) => {
   console.log(`🖥️ Servidor iniciado na porta ${PORT}`);
 });
+
+
