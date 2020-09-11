@@ -10,7 +10,7 @@ InicializaMongoServer();
 const app = express();
 
 // Porta Default
-const PORT = process.env.DEFAULT_PORT || 4000;
+const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(function(req, res, next) {
