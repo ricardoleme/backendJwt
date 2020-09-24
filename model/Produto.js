@@ -47,4 +47,4 @@ ProdutoSchema.index({
         },
     });
 
-module.exports = mongoose.model('Produtos', ProdutoSchema);
+module.exports = mongoose.model('Produto', ProdutoSchema);

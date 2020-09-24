@@ -19,4 +19,4 @@ const GrupoSchema = mongoose.Schema({
     });
 
 
-module.exports = mongoose.model('Grupos', GrupoSchema);
+module.exports = mongoose.model('Grupo', GrupoSchema);

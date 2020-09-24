@@ -7,7 +7,7 @@
 @baseUrl = http://localhost:4000
 GET {{baseUrl}}/usuario/eu
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNWYzYzJjZDVhODFhNmY2YzFhMTkzMjA4In0sImlhdCI6MTU5Nzc3OTUwMSwiZXhwIjoxNTk3NzgzMTAxfQ.ypnNyH1qMvsy6_MOTy-7G_HBdzc3Gr8orAnV2DK4CAI 
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNWY2YzhjOWMxZmMyOGFiZDZlOTQxYjIyIn0sImlhdCI6MTYwMDk0OTQwNCwiZXhwIjoxNjAwOTYwMjA0fQ.2uFGZ3OAJ6R_TgCayDsbEL61R6PiUKx1k0Di4VJfOmQ
 
 ###
 // POST Login Usuário
@@ -15,7 +15,7 @@ POST {{baseUrl}}/usuario/login
 Content-Type: application/json
 
 {
-    "email": "ricardo.leme2@gmail.com",
+    "email": "ricardo.leme@gmail.com",
     "senha": "secreta"}
 
 ###
@@ -24,9 +24,7 @@ POST {{baseUrl}}/usuario/novo
 Content-Type: application/json
 
 {
-    "nome": "Ricardo Leme2",
-    "email": "ricardo.leme2@gmail.com",
+    "nome": "Ricardo Leme",
+    "email": "ricardo.leme@gmail.com",
     "senha": "secreta",
-    "tipo": "administrador",
-    "avatar": "https://api.adorable.io/avatars/256/ricardo.leme2@gmail.com.png"
-}
+    "tipo": "administrador"}

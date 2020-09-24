@@ -1,10 +1,14 @@
+// cSpell:Ignore usuario
 require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const usuario = require("./routes/usuario");
 const InicializaMongoServer = require("./config/db");
+//Definindo as rotas da aplicação
+const usuario = require("./routes/usuario");
+const passeador = require("./routes/passeador");
 
-// Initializamos o servidor MongoDb
+
+// Inicializamos o servidor MongoDb
 InicializaMongoServer();
 
 const app = express();
@@ -37,6 +41,13 @@ app.get("/", (req, res) => {
  * Method - *
  */
 app.use("/usuario", usuario);
+
+/**
+ * Router Middleware
+ * Router - /passeador/*
+ * Method - *
+ */
+app.use("/passeador", passeador);
 
 app.listen(PORT, (req, res) => {
   console.log(`🖥️ Servidor iniciado na porta ${PORT}`);
