@@ -17,25 +17,23 @@ const app = express();
 // Porta Default
 const PORT = process.env.PORT || 4000;
 
-app.use(cors())
-app.options('*', cors());
-/* // Exemplo de Middleware mais seguro
+// Exemplo de Middleware 
 app.use(function(req, res, next) {
-   // atualize com o domínio do seu app
-  res.setHeader("Access-Control-Allow-Origin", "http://seusite.com.br");
+   // Em produção, remova req.headers.origin e atualize com o domínio do seu app
+  res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
   // Cabeçalhos que serão permitidos
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token");
   // Métodos que serão permitidos
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   next();  
 });
-*/
+
 // parse application/json
 app.use(bodyParser.json())
 
 
 app.get("/", (req, res) => {
-  res.json({ mensagem: "👏 API 100% funcional!", versao: "1.1.02" });
+  res.json({ mensagem: "👏 API 100% funcional!", versao: "1.1.03" });
 });
 
 /**
