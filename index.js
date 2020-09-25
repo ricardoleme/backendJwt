@@ -17,7 +17,7 @@ const app = express();
 // Porta Default
 const PORT = process.env.PORT || 4000;
 
-app.use(cors())
+app.use(cors({credentials: true, origin: true}))
 /* // Exemplo de Middleware mais seguro
 app.use(function(req, res, next) {
    // atualize com o domínio do seu app
