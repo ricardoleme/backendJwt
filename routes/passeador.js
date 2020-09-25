@@ -18,7 +18,7 @@ router.get("/", auth, async (req, res) => {
     const passeador = await Passeador.find().sort({estrelas:-1});
     res.json(passeador);
   } catch (e) {
-    res.send({ mensagem: `Erro ao obter os dados dos passeadores: ${e.message}` });
+    res.send({ error: `Erro ao obter os dados dos passeadores: ${e.message}` });
   }
 });
 

@@ -69,7 +69,7 @@ router.post(
         payload,
         process.env.SECRET_KEY,
         {
-          expiresIn: 10800 // 3 horas
+          expiresIn: 21600 // 6 horas
         },
         (err, token) => {
           if (err) throw err;
@@ -79,7 +79,7 @@ router.post(
         }
       );
     } catch (err) {
-      console.log(err.message);   
+      //console.log(err.message);   
       return res.status(500).json({
         errors: `Erro ao salvar o usuário: ${err.message}`
       });
@@ -161,10 +161,10 @@ router.post(
 router.get("/eu", auth, async (req, res) => {
   try {
     // auth garantirá que foi enviado o token.
-    const usuario = await Usuario.findById(req.usuario.id, {senha: 0});
+    const usuario = await Usuario.findById(req.usuario.id, {senha: 0, criado_em: 0, alterado_em:0, __v:0});
     res.json(usuario);
   } catch (e) {
-    res.send({ mensagem: `Erro ao obter os dados do usuário: ${e.message}` });
+    res.send( `Erro ao obter os dados do usuário: ${e.message}` );
   }
 });
 

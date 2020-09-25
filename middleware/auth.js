@@ -1,3 +1,4 @@
+// cSpell:Ignore usuario
 const jwt = require("jsonwebtoken");
 
 module.exports = function(req, res, next) {
@@ -9,7 +10,7 @@ module.exports = function(req, res, next) {
     req.usuario = decoded.usuario;
     next();
   } catch (e) {
-    console.error(e);
-    res.status(500).send({ mensagem: `Token inválido: ${e.message}` });
+    console.error(e.message);
+    res.status(403).send({ error: `Token inválido: ${e.message}` });
   }
 };

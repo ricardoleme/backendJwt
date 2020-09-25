@@ -1,4 +1,4 @@
-// cSpell:Ignore maxlength, usuario, passeadors
+// cSpell:Ignore maxlength, usuario, passeadors, preco, servicos
 const mongoose = require('mongoose');
 
 //Criando o schema Favoritos do Passeador
@@ -9,6 +9,12 @@ const favoritosSchema = mongoose.Schema({
 //Criando o schema Fotos do Passeador
 const fotosSchema = mongoose.Schema({
     url : {type: String}
+});
+
+//Criando o schema Serviços do Passeador
+const servicosSchema = mongoose.Schema({
+    nome : {type: String},
+    preco : {type: Number, min: 0}
 });
 
 //Criando o schema Testemunhos do Passeador
@@ -34,7 +40,8 @@ const PasseadorSchema = mongoose.Schema({
     estrelas: { type: Number, min: 0, max: 5 },
     favoritos: [favoritosSchema],
     fotos: [fotosSchema],
-    testemunhos: [testemunhosSchema]
+    testemunhos: [testemunhosSchema],
+    servicos: [servicosSchema]
 }, {
     timestamps: true
 });

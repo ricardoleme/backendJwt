@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 4000;
 // Middleware
 app.use(function(req, res, next) {
    // atualize com o domínio do seu app
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:19006");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   // Cabeçalhos que serão permitidos
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token");
   // Métodos que serão permitidos
