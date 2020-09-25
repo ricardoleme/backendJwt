@@ -1,11 +1,12 @@
 // cSpell:Ignore usuario
-require('dotenv').config();
-const express = require("express");
-const bodyParser = require("body-parser");
-const InicializaMongoServer = require("./config/db");
+require('dotenv').config()
+const express = require("express")
+const cors = require('cors')
+const bodyParser = require("body-parser")
+const InicializaMongoServer = require("./config/db")
 //Definindo as rotas da aplicação
-const usuario = require("./routes/usuario");
-const passeador = require("./routes/passeador");
+const usuario = require("./routes/usuario")
+const passeador = require("./routes/passeador")
 
 
 // Inicializamos o servidor MongoDb
@@ -16,17 +17,18 @@ const app = express();
 // Porta Default
 const PORT = process.env.PORT || 4000;
 
-// Middleware
+app.use(cors())
+/* // Exemplo de Middleware mais seguro
 app.use(function(req, res, next) {
    // atualize com o domínio do seu app
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "http://seusite.com.br");
   // Cabeçalhos que serão permitidos
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token");
   // Métodos que serão permitidos
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   next();  
 });
-
+*/
 // parse application/json
 app.use(bodyParser.json())
 
