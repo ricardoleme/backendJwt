@@ -20,8 +20,8 @@ const PORT = process.env.PORT || 4000;
 // Exemplo de Middleware 
 app.use(function(req, res, next) {
   const site = req.get('host')
-   // Em produção, remova a const site e atualize com o domínio do seu app
-  res.setHeader("Access-Control-Allow-Origin", `${site}`);
+   // Em produção, remova o '*' e atualize com o domínio do seu app
+  res.setHeader("Access-Control-Allow-Origin", '*');
   // Cabeçalhos que serão permitidos
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token");
   // Métodos que serão permitidos
@@ -34,7 +34,7 @@ app.use(bodyParser.json())
 
 
 app.get("/", (req, res) => {
-  res.json({ mensagem: "👏 API 100% funcional!", versao: "1.1.04" });
+  res.json({ mensagem: "👏 API 100% funcional!", versao: "1.1.05" });
 });
 
 /**
