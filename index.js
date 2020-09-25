@@ -1,4 +1,4 @@
-// cSpell:Ignore usuario
+// cSpell:Ignore usuario, versao
 require('dotenv').config()
 const express = require("express")
 const cors = require('cors')
@@ -34,7 +34,7 @@ app.use(bodyParser.json())
 
 
 app.get("/", (req, res) => {
-  res.json({ mensagem: "👏 API 100% funcional!" });
+  res.json({ mensagem: "👏 API 100% funcional!", versao: "1.1" });
 });
 
 /**
