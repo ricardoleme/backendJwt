@@ -7,7 +7,7 @@
 @baseUrl = http://localhost:4000
 GET {{baseUrl}}/usuario/eu
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNWY2YzhjOWMxZmMyOGFiZDZlOTQxYjIyIn0sImlhdCI6MTYwMDk1NTY0NCwiZXhwIjoxNjAwOTU5MjQ0fQ.jPb54OlWqS-lJ7aKtv-a8OpP9WH_F-H8mHTGyIcRW_M
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNWY2YzhjOWMxZmMyOGFiZDZlOTQxYjIyIn0sImlhdCI6MTYwMjc5MDg2OCwiZXhwIjoxNjAyNzk0NDY4fQ.sG_N3fNI2zits0SZeR91bEuXdGMTpMKbTuAQR5293Lk
 ###
 // POST Login Usuário
 POST {{baseUrl}}/usuario/login

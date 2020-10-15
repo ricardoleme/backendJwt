@@ -1,3 +1,4 @@
+//cSpell:Ignore Usuario
 const express = require("express");
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");

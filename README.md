@@ -1,5 +1,5 @@
 
-### 
+### Exemplo de um backend com JWT (MongoDB e NodeJS)
 
 ## Índice 
    * [1. Introdução](#1-introdução) 
@@ -64,18 +64,13 @@ As variáveis de ambiente ajudam a definir valores que não queremos codificar d
 
 ### 4. Inicializando o projeto
 
-Para iniciar este projeto, utilizaremos o npm init
+Para iniciar este projeto, utilizaremos o nodemon (ele efetua o hot reload)
 
 
 ```
-npm init
+npm i
+nodemon
 
-```
-
-***npm init*** Ele solicitará alguns parâmetros, pode informar o valor default, dando um ENTER.
-
-```javascript
-npm install express express-validator body-parser bcryptjs jsonwebtoken mongoose nodemon dotenv --save
 ```
 
 Renomeie o arquivo .env-exemplo para .env e informe a sua string de conexão do MongoDb.

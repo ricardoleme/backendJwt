@@ -5,7 +5,6 @@ const bodyParser = require("body-parser")
 const InicializaMongoServer = require("./config/db")
 //Definindo as rotas da aplicação
 const usuario = require("./routes/usuario")
-const passeador = require("./routes/passeador")
 
 
 // Inicializamos o servidor MongoDb
@@ -33,22 +32,12 @@ app.use(bodyParser.json())
 
 
 app.get("/", (req, res) => {
-  res.json({ mensagem: "👏 API 100% funcional!", versao: "1.1.07" });
+  res.json({ mensagem: "👏 API 100% funcional!", versao: "1.1.01" });
 });
 
-/**
- * Router Middleware
- * Router - /usuario/*
- * Method - *
- */
+/* Rotas do Usuário */
 app.use("/usuario", usuario);
 
-/**
- * Router Middleware
- * Router - /passeador/*
- * Method - *
- */
-app.use("/passeador", passeador);
 
 app.listen(PORT, (req, res) => {
   console.log(`🖥️ Servidor iniciado na porta ${PORT}`);
