@@ -135,7 +135,7 @@ router.post(
         payload,
         process.env.SECRET_KEY,
         {
-          expiresIn: 3600
+          expiresIn: 21600
         },
         (err, token) => {
           if (err) throw err;

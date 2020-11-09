@@ -1,10 +1,11 @@
-// cSpell:Ignore usuario, versao
+// cSpell:Ignore usuario, versao   
 require('dotenv').config()
 const express = require("express")
 const bodyParser = require("body-parser")
 const InicializaMongoServer = require("./config/db")
 //Definindo as rotas da aplicação
 const usuario = require("./routes/usuario")
+const produto = require('./routes/produto')
 
 
 // Inicializamos o servidor MongoDb
@@ -32,11 +33,13 @@ app.use(bodyParser.json())
 
 
 app.get("/", (req, res) => {
-  res.json({ mensagem: "👏 API 100% funcional!", versao: "1.1.01" });
-});
+  res.json({ mensagem: "👏 API 100% funcional!", versao: "1.1.01" })
+})
 
 /* Rotas do Usuário */
-app.use("/usuario", usuario);
+app.use("/usuario", usuario)
+/* Rotas do Produto */
+app.use("/produto", produto)
 
 
 app.listen(PORT, (req, res) => {

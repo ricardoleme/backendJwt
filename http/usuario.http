@@ -23,7 +23,8 @@ POST {{baseUrl}}/usuario/novo
 Content-Type: application/json
 
 {
-    "nome": "Ricardo Leme",
-    "email": "ricardo.leme@gmail.com",
+    "nome": "Ricardo Leme5",
+    "email": "ricardo.leme5@gmail.com",
     "senha": "secreta",
-    "tipo": "administrador"}
+    "tipo": "administrador"
+}

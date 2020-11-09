@@ -1,0 +1,45 @@
+//Teste de requisição no produto
+
+@baseUrl = http://localhost:4000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNWY2YzhjOWMxZmMyOGFiZDZlOTQxYjIyIn0sImlhdCI6MTYwNDk0NDU5NCwiZXhwIjoxNjA0OTY2MTk0fQ.PkdxuRBWqiYjn58O6mOUFHuQzPavC29ziw-oyJovpO4
+@id = 5fa975f25a97de2431cd67eea
+###
+//Obtendo os produtos
+GET {{baseUrl}}/produto
+Content-Type: application/json
+x-access-token: {{token}}
+
+###
+//Obtendo um único produto pelo ID
+GET {{baseUrl}}/produto/{{id}}
+Content-Type: application/json
+x-access-token: {{token}}
+
+###
+//Inserindo um novo produto
+POST {{baseUrl}}/produto
+Content-Type: application/json
+x-access-token: {{token}}
+
+{"nome":"Arroz Agulhinha2",
+"descricao":"Arroz Tipo 12",
+"codigobarra": "0123456789012",
+"preco": 29.90}
+
+###
+//Removendo o produto pelo ID
+DELETE {{baseUrl}}/produto/{{id}}
+Content-Type: application/json
+x-access-token: {{token}}
+
+###
+//Alterando um produto já existente
+PUT {{baseUrl}}/produto
+Content-Type: application/json
+x-access-token: {{token}}
+
+{"_id": "5fa976075a97de2431cd67ef",
+"nome":"Arroz Arbóreo",
+"descricao":"Arroz Arbóreo tipo italiano",
+"codigobarra": "0123456789992",
+"preco": 34.90}
